@@ -1,0 +1,181 @@
+{% extends "master/layout.html" %}
+    {% block header %}
+    <div class="container">
+            <ul class="nav nav-tabs" id="mytab" role="tablist">
+                <li role="presentation" class="active"><a href="#home">Home</a></li>
+                <li role="presentation"><a href="#python">Python</a></li>
+                <li role="presentation"><a href="#linux">Linux</a></li>
+                <li role="presentation"><a href="#sql">SQL</a></li>
+            </ul>
+        </div>
+    {% endblock %}
+
+    {% block home %}
+            <div role="tabpanel" class="tab-pane active" id="home">
+                <div class="list-group">
+                    {% for item in article %}
+                    <div class="list-group-item panel panel-default" style="height: auto;">
+                        <p>
+                            <small><a href="/article/{{item.id}}">{{item.title}}</a></small>
+                            <small style="float: right;margin-right:5px;">发布时间：<span class="badge">{{item.create_date|date:"Y-m-d H:i:s"}}</span></small>
+                            <small style="float: right;margin-right:5px;">最后更新：<span class="badge">{{item.update_date|date:"Y-m-d H:i:s"}}</span></small>
+                        </p>
+                        <div class="well" style="height:100px;overflow: hidden;">
+                            {{item.content | safe}}
+                        </div>
+                        <p class="">
+                            <small><button class="btn btn-success " type="button">{{item.article_type}}</button></small>
+                            <small><button class="btn btn-primary  col-sm-offset-1" type="button">{{item.keyword}}</button></small>
+                            <small><button class="btn btn-warning  col-sm-offset-1" type="button">MyBlog</button></small>
+                            <small><button class="btn btn-danger  col-sm-offset-1" type="button">点击率<span class="badge">{{item.readed_count}}</span></button></small>
+                            <small><a class="col-sm-offset-1" href="/article/{{item.id}}" target="_blank">继续阅读&Gt;</a></small>
+                        </p>
+                    </div>
+                    {% endfor %}
+                </div>
+                <nav class="col-sm-offset-3">
+                <ul class="pagination">
+                {{page_html}}
+                </ul>
+                </nav>
+            </div>
+    {% endblock %}
+
+    {% block python %}
+            <div role="tabpanel" class="tab-pane" id="python">
+                <div class="list-group">
+                    {% for item in python %}
+                    <div class="list-group-item panel panel-default" style="height: auto;">
+                        <p>
+                            <small><a href="/article/{{item.id}}">{{item.title}}</a></small>
+                            <small style="float: right;margin-right:5px;">发布时间：<span class="badge">{{item.create_date|date:"Y-m-d H:i:s"}}</span></small>
+                            <small style="float: right;margin-right:5px;">最后更新：<span class="badge">{{item.update_date|date:"Y-m-d H:i:s"}}</span></small>
+                        </p>
+                        <div class="well" style="height:100px;overflow: hidden;">
+                            {{item.content | safe}}
+                        </div>
+                        <p class="">
+                            <small><button class="btn btn-success " type="button">{{item.article_type}}</button></small>
+                            <small><button class="btn btn-primary  col-sm-offset-1" type="button">{{item.keyword}}</button></small>
+                            <small><button class="btn btn-warning  col-sm-offset-1" type="button">MyBlog</button></small>
+                            <small><button class="btn btn-danger  col-sm-offset-1" type="button">点击率<span class="badge">{{item.readed_count}}</span></button></small>
+                            <small><a class="col-sm-offset-1" href="/article/{{item.id}}" target="_blank">继续阅读&Gt;</a></small>
+                        </p>
+                    </div>
+                    {% endfor %}
+                </div>
+                <nav class="col-sm-offset-3">
+                <ul class="pagination">
+                {{page2_html}}
+                </ul>
+                </nav>
+            </div>
+    {% endblock %}
+
+    {% block linux %}
+            <div role="tabpanel" class="tab-pane" id="linux">
+                <div class="list-group">
+                    {% for item in linux %}
+                    <div class="list-group-item panel panel-default" style="height: auto;">
+                        <p>
+                            <small><a href="/article/{{item.id}}">{{item.title}}</a></small>
+                            <small style="float: right;margin-right:5px;">发布时间：<span class="badge">{{item.create_date|date:"Y-m-d H:i:s"}}</span></small>
+                            <small style="float: right;margin-right:5px;">最后更新：<span class="badge">{{item.update_date|date:"Y-m-d H:i:s"}}</span></small>
+                        </p>
+                        <div class="well" style="height:100px;overflow: hidden;">
+                            {{item.content | safe}}
+                        </div>
+                        <p class="">
+                            <small><button class="btn btn-success " type="button">{{item.article_type}}</button></small>
+                            <small><button class="btn btn-primary  col-sm-offset-1" type="button">{{item.keyword}}</button></small>
+                            <small><button class="btn btn-warning  col-sm-offset-1" type="button">MyBlog</button></small>
+                            <small><button class="btn btn-danger  col-sm-offset-1" type="button">点击率<span class="badge">{{item.readed_count}}</span></button></small>
+                            <small><a class="col-sm-offset-1" href="/article/{{item.id}}" target="_blank">继续阅读&Gt;</a></small>
+                        </p>
+                    </div>
+                    {% endfor %}
+                </div>
+                <nav class="col-sm-offset-3">
+                <ul class="pagination">
+                {{page3_html}}
+                </ul>
+                </nav>
+            </div>
+    {% endblock %}
+
+    {% block sql %}
+            <div role="tabpanel" class="tab-pane" id="sql">
+                <div class="list-group">
+                    {% for item in sql %}
+                    <div class="list-group-item panel panel-default" style="height: auto;">
+                        <p>
+                            <small><a href="/index/{{item.id}}">{{item.title}}</a></small>
+                            <small style="float: right;margin-right:5px;">发布时间：<span class="badge">{{item.create_date|date:"Y-m-d H:i:s"}}</span></small>
+                            <small style="float: right;margin-right:5px;">最后更新：<span class="badge">{{item.update_date|date:"Y-m-d H:i:s"}}</span></small>
+                        </p>
+                        <div class="well" style="height:100px;overflow: hidden;">
+                            {{item.content | safe}}
+                        </div>
+                        <p class="">
+                            <small><button class="btn btn-success " type="button">{{item.article_type}}</button></small>
+                            <small><button class="btn btn-primary  col-sm-offset-1" type="button">{{item.keyword}}</button></small>
+                            <small><button class="btn btn-warning  col-sm-offset-1" type="button">MyBlog</button></small>
+                            <small><button class="btn btn-danger  col-sm-offset-1" type="button">点击率<span class="badge">{{item.readed_count}}</span></button></small>
+                            <small><a class="col-sm-offset-1" href="/index/{{item.id}}" target="_blank">继续阅读&Gt;</a></small>
+                        </p>
+                    </div>
+                    {% endfor %}
+                </div>
+                <nav class="col-sm-offset-3">
+                <ul class="pagination">
+                {{page4_html}}
+                </ul>
+                </nav>
+            </div>
+    {% endblock %}
+
+    {% block recommend %}
+        <div class="panel panel-success"style="margin-top:32px;">
+           <div class="panel-heading">
+              <h3 class="panel-title">推荐文章</h3>
+           </div>
+           <div class="panel-body">
+               <ul>
+               {% for item in recommend %}
+               <li><a href="/index/{{item.id}}">{{ item.title }}</a><span class="badge" style="float:right;">{{item.readed_count}}</span></li>
+               {% endfor %}
+               </ul>
+           </div>
+        </div>
+    {% endblock %}
+    {% block lately%}
+         <div class="panel panel-success"style="margin-top:32px;">
+           <div class="panel-heading">
+              <h3 class="panel-title">最近更新</h3>
+           </div>
+           <div class="panel-body">
+               <ul>
+               {% for item in lately %}
+               <li><a href="/index/{{item.id}}">{{ item.title }}</a><span class="badge" style="float:right;">{{item.readed_count}}</span></li>
+               {% endfor %}
+               </ul>
+           </div>
+        </div>
+    {% endblock %}
+    {% block techwebsite %}
+        <div class="panel panel-success"style="margin-top:32px;">
+               <div class="panel-heading">
+                  <h3 class="panel-title">一些技术站点</h3>
+               </div>
+               <div class="panel-body">
+                   <ul>
+                       <li><a href="http://www.ziqiangxuetang.com/" style="margin:5px;">自强学堂</a></li>
+                       <li><a href="http://www.liaoxuefeng.com/"style="margin:5px;">廖雪峰的官方网站</a></li>
+                       <li><a href="http://www.51cto.com/"style="margin:5px;">51CTO</a></li>
+                       <li><a href="http://www.bootcss.com/"style="margin:5px;">BootStrap</a></li>
+                       <li><a href="https://pkgs.org"style="margin:5px;">pkgs.org</a></li>
+                       <li><a href="http://www.php100.com/manual/jquery/"style="margin:5px;">jQuery</a></li>
+                   </ul>
+               </div>
+            </div>
+    {% endblock %}

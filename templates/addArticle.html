@@ -1,0 +1,15 @@
+{% extends "master/layout.html" %}
+
+    {% block addArticle %}
+        <div class="container" style="width:800px;top:50px;">
+            <h1 style="text-align:center;">发布新文章</h1>
+            <div id="summernote" >
+            在此发布你的文章
+            </div>
+            <a href="/"><button class="btn btn-primary " type="button" style="width:80px">首页</button></a>
+            <a href="/addArticle/"><button class="btn btn-danger col-sm-offset-4" type="button" style="width:80px">撤销</button></a>
+            <a href="/addArticle/"><button class="btn btn-success col-sm-offset-4" type="button" style="width:80px">发布</button></a>
+        </div>
+
+    {% endblock %}
+

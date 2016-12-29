@@ -1,0 +1,29 @@
+{% extends "master/layout.html" %}
+    {% block article %}
+        <div class="container" style="height:auto; margin-top:100px; width:80%">
+            <div role="tabpanel" class="tab-pane active" style="height:auto;">
+                <div class="list-group">
+                    <div class="list-group-item panel panel-default">
+                        <p>
+                            <small><a href="/article/{{item.id}}">{{article.title}}</a></small>
+                            <small style="float: right;margin-right:5px;">发布时间：<span class="badge">{{article.create_date|date:"Y-m-d H:i:s"}}</span></small>
+                            <small style="float: right;margin-right:5px;">最后更新：<span class="badge">{{article.update_date|date:"Y-m-d H:i:s"}}</span></small>
+                        </p>
+
+                        <p class="">
+                            <small><span class="label label-success " >{{article.article_type}}</span></small>
+                            <small><span class="label label-primary  col-sm-offset-1" >{{article.keyword}}</span></small>
+                            <small><span class="label label-warning  col-sm-offset-1" >MyBlog</span></small>
+                            <small><span class="label label-danger  col-sm-offset-1" >点击率<span class="badge">{{article.readed_count}}</span></span></small>
+
+                        </p>
+
+                        <p class="container" style="height:auto;overflow:auto;">
+                            <h3 style="text-align:center">{{article.title}}</h3>
+                            <small class="container" style="line-height:2.5">{{article.content | safe}}</small>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endblock %}
